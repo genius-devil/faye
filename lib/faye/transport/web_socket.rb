@@ -72,7 +72,6 @@ module Faye
       socket  = Faye::WebSocket::Client.new(url.to_s, [], options)
 
       socket.onopen = lambda do |*args|
-        store_cookies(socket.headers['Set-Cookie'])
         @socket = socket
         @state = CONNECTED
         @ever_connected = true
